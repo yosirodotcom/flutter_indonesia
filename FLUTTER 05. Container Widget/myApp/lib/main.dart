@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+// Pada kali ini akan dibahas tentang class Container() yang bisa terdiri
+// hanya satu anak (child), dan berbagai properties nya seperti
+// urutan di bawah ini
+
+// Container:
+//   - child: a class
+//   - margin
+//   - padding
+//   - color
+//   - decoration
+//     - BoxDecoration
+//       - borderRadius
+//       - gradient
+//         - begin
+//         - end
+//         - colors: <Color>[]
 
 void main() {
   runApp(MyApp());
 }
-
-// Penggunaan Column dan Row sama dan memiliki properti yang sama
-// Karena di body hanya bisa diisi satu class parent, maka yang akan di contohkan
-// adalah penggunaan Column saja.
-
-// Column memiliki children yang berisi list widget yang akan di susun
-// secara vertikal, sedangkan Row akan di susun secara horizontal
-
-// Pada body saya akan memasukkan kolom ke Class SafeArea agar tampilannya
-// berada di dalam body handphone.
 
 class MyApp extends StatelessWidget {
   @override
@@ -21,20 +29,31 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("FLUTTER 04. Row dan Column Widget"),
+          title: Text(
+            "FLUTTER 05. Container Widget",
+            style: GoogleFonts.pacifico(
+              textStyle: TextStyle(fontSize: 20),
+            ),
+          ),
         ),
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Text("Widget 1"),
-              Text("Widget 2"),
-              Text("Widget 3")
-            ],
-            // Column/Row properties:
-            mainAxisAlignment: MainAxisAlignment
-                .center, // meletakkan semua childrennya di tengah sumbu y (Row kebalikannya)
-            crossAxisAlignment: CrossAxisAlignment
-                .start, // meletakkan semua childrennya di tengah sumbu x (Row kebalikannya)
+        body: Container(
+          color: Colors.redAccent,
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.all(20),
+          child: Container(
+            margin: EdgeInsets.fromLTRB(10, 15, 13, 23),
+            padding: EdgeInsets.only(bottom: 30, top: 40),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+                  Colors.amber,
+                  Colors.blue,
+                ],
+              ),
+            ),
           ),
         ),
       ),

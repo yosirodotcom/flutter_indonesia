@@ -5,13 +5,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String message = " Ini adalah text default";
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,8 +13,8 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "FLUTTER 07. Anonymous Method",
-            style: GoogleFonts.pacifico(
+            "FLUTTER 08. TextStyle",
+            style: GoogleFonts.montserratAlternates(
               textStyle: TextStyle(fontSize: 20),
             ),
           ),
@@ -29,14 +23,17 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(message),
-              RaisedButton(
-                child: Text("Tekanlah"),
-                onPressed: () {
-                  setState(() {
-                    message = "Tombol ini sudah ditekan";
-                  });
-                },
+              Text(
+                "Hello World 123!!!",
+                style: GoogleFonts.aBeeZee(
+                  textStyle: TextStyle(
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                      decoration: TextDecoration.overline,
+                      decorationColor: Colors.red,
+                      decorationThickness: 20,
+                      decorationStyle: TextDecorationStyle.wavy),
+                ),
               ),
             ],
           ),

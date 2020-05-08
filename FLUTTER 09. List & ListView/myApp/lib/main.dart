@@ -5,7 +5,15 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<Widget> widgets = [];
+  num counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,24 +21,39 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "FLUTTER 09. List & ListView",
-            style: GoogleFonts.montserratAlternates(
+            "FLUTTER 04. Row dan Column Widget",
+            style: GoogleFonts.aclonica(
               textStyle: TextStyle(fontSize: 20),
             ),
           ),
         ),
-        body: Text(
-          "Hello World 123!!!",
-          style: GoogleFonts.aBeeZee(
-            textStyle: TextStyle(
-                fontSize: 30,
-                fontStyle: FontStyle.italic,
-                decoration: TextDecoration.overline,
-                decorationColor: Colors.red,
-                decorationThickness: 20,
-                decorationStyle: TextDecorationStyle.wavy),
+        body: ListView(children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              RaisedButton(
+                  onPressed: () {
+                    setState(() {
+                      widgets.add(Text("Data ke-" + counter.toString()));
+                      counter++;
+                    });
+                  },
+                  child: Text("Tambah Data")),
+              RaisedButton(
+                  onPressed: () {
+                    setState(() {
+                      widgets.removeLast();
+                      counter--;
+                    });
+                  },
+                  child: Text("Hapus Data")),
+            ],
           ),
-        ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: widgets,
+          ),
+        ]),
       ),
     );
   }

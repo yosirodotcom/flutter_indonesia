@@ -14,7 +14,34 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "FLUTTER 04. Row dan Column Widget",
-            style: GoogleFonts.pacifico(
+            style: GoogleFonts.aclonica(
+              textStyle: TextStyle(fontSize: 20),
+            ),
+          ),
+        ),
+        body: Container(),
+      ),
+    );
+  }
+}
+
+////////////////// stateful widget
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "FLUTTER 04. Row dan Column Widget",
+            style: GoogleFonts.aclonica(
               textStyle: TextStyle(fontSize: 20),
             ),
           ),
